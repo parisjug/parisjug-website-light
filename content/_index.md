@@ -12,7 +12,8 @@ Après la réunion nous nous retrouvons généralement pour un échange informel
 
 ## Young blood 2024
 <!-- Partner event -->
-{{<figure src="/img/youngblood.png" alt="Young Blood 2024" class="sponsor-svg-logo" width="400px" link="https://forms.gle/XMd15eRSpirwxW817" target="_blank">}}
+
+{{<figure src="/img/youngblood.png" alt="Young Blood 2024" class="sponsor-svg-logo" width="200px" link="https://forms.gle/XMd15eRSpirwxW817" target="_blank">}}
 
 
 Cette année c'est la onzième édition de la désormais incontournable session de janvier du ParisJUG : les **Young Bloods**. 
