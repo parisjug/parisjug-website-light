@@ -1,0 +1,48 @@
+{{ define "main" }}
+<main class="main" role="main">
+	<article class="post">
+        {{- if and .Params.twitter .Site.Params.Twitter }}
+			{{- $twitterApiHeaders := dict "authorization" (printf "%s%s" "Bearer " .Site.Params.Twitter) }}
+			{{- $twitterUser := getJSON "https://api.twitter.com/1.1/users/show.json?screen_name=" .Params.twitter $twitterApiHeaders }}
+			{{- $originalImage := resources.GetRemote (replace $twitterUser.profile_image_url_https "_normal" "") }}
+			{{- $image := $originalImage.Resize "128x128" }}
+		<a href="https://twitter.com/{{ .Params.twitter }}" title="{{ .Title }} Twitter profile" target="_blank">
+			<img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" class="speaker-profile avatar" alt="{{ .Title }} profile picture">
+		</a>
+        {{- end }}
+		<header class="post__header">
+			<h1 class="post__title">{{ .Title }}</h1>
+			{{- with .Params.lead }}
+			<p class="post__lead">{{ . }}</p>
+			{{- end }}
+			{{ with partial "post_meta.html" . -}}
+			<div class="post__meta meta">{{ . }}</div>
+			{{- end }}
+		</header>
+		{{ partial "post_thumbnail.html" (dict "class" "post" "page" .) }}
+		{{- partial "post_toc.html" . -}}
+		<div class="content post__content clearfix">
+			{{ .Content }}
+			<h2>Évènements associés</h2>
+			<ul>
+			{{- range .Site.Pages }}
+			{{- if and
+				(eq .Type "events") 
+				(strings.Contains .Content $.File.BaseFileName)
+			}}
+				<li><a href="{{ .Permalink }}" title="Consulter les détails l'évènement">{{ .Date | time.Format ":date_short" }} - {{ .Title }}</a></li>
+			{{- end }}
+			{{- end }}
+			</ul>
+		</div>
+		{{- if .Params.tags }}
+		<footer class="post__footer">
+			{{ partial "post_tags.html" . }}
+		</footer>
+		{{- end }}
+	</article>
+</main>
+{{ partial "authorbox.html" . }}
+{{ partial "pager.html" . }}
+{{ partial "comments.html" . }}
+{{ end }}

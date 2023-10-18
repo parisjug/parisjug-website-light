@@ -1,0 +1,136 @@
+/* Header customization */
+.header__container {
+    background-size: cover;
+    background-image:
+        linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 0, 0, 0.5)),
+        url('/img/header.jpeg');
+}
+
+.logo__tagline {
+    color: rgb(255, 255, 255);
+}
+
+/*
+ * Events.
+ */
+
+/* Replay partial/shorcode */
+div.event-replay {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    justify-content: center;
+    margin: 10px;
+}
+div.event-replay a {
+    width: 45%;
+    min-width: 320px;
+}
+
+/*
+ * Speakers.
+ */
+
+/* Speakers list */
+ul.speaker__list {
+    margin-bottom: 1rem;
+}
+ul.speaker__list li {
+    display: inline-block;
+}
+ul.speaker__list li + li::before {
+    content: " | ";
+}
+
+/* Speakers single page */
+.speaker-profile {
+    float: left;
+    margin: 0 16px 16px 0;
+}
+
+.avatar {
+    border: 3px solid rgb(226, 44, 47);
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+/* About pages */
+
+table.team {
+    text-align: center;
+    border: none;
+}
+
+table.team td {
+    border: none;
+}
+
+/*
+ * Gallery shortcode.
+ */
+
+/* Gallery bloc */
+div.gallery {
+    text-align: center;
+    margin: 0 0 1.25rem;
+}
+
+/* Gallery image */
+div.gallery img {
+    padding: 3px;
+    border-radius: 10px;
+}
+
+/*
+ * Sponsor section shortcode.
+ */
+
+div.sponsor-section {
+    text-align: center;
+}
+
+div.sponsor-section figure {
+    display: inline;
+}
+
+div.sponsor-section figure + figure img {
+    margin-left: 15px;
+}
+
+div.sponsor-section figure img {
+    margin-bottom: 10px;
+}
+
+div.sponsor-section-platinium figure img {
+    max-width: 200px;
+    max-height: 50px;
+}
+
+div.sponsor-section-gold figure img {
+    max-width: 150px;
+    max-height: 40px;
+}
+
+/*
+ * Sponsors page.
+ */
+figure.sponsor-svg-logo {
+    text-align: center;
+}
+figure.sponsor-svg-logo img {
+    max-width: 600px;
+    max-height: 300px;
+}
+
+/*
+ * Sidebar.
+ */
+
+/* Sponsor widget */
+.widget-sponsors .widget__list .widget__item {
+    text-align: center;
+}
+
+.widget-sponsors .widget__list .widget__item img {
+    max-height: 120px;
+}
